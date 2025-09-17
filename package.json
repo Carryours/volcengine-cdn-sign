@@ -1,0 +1,33 @@
+{
+  "name": "cdn-sign",
+  "version": "1.0.0",
+  "description": "用于生成带签名的 CDN 链接的工具函数",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "vite build",
+    "test": "vitest"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "cdn",
+    "sign",
+    "url",
+    "typescript"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/crypto-js": "^4.2.2",
+    "@types/node": "^24.5.1",
+    "typescript": "^5.0.0",
+    "vite": "^7.1.5",
+    "vitest": "^3.2.4"
+  },
+  "dependencies": {
+    "crypto-js": "^4.2.0"
+  }
+}
