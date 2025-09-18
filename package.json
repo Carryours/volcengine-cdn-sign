@@ -1,9 +1,17 @@
 {
-  "name": "cdn-sign",
-  "version": "1.0.0",
+  "name": "@tuchong/volcengine-cdn-sign",
+  "version": "0.0.1",
   "description": "用于生成带签名的 CDN 链接的工具函数",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/cdn-sign.cjs.js",
+  "module": "dist/cdn-sign.es.js",
+  "types": "dist/cdn-sign.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/cdn-sign.es.js",
+      "require": "./dist/cdn-sign.cjs.js",
+      "types": "./dist/cdn-sign.d.ts"
+    }
+  },
   "scripts": {
     "build": "vite build",
     "test": "vitest"
