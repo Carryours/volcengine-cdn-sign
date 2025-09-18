@@ -7,9 +7,9 @@
   "types": "dist/cdn-sign.d.ts",
   "exports": {
     ".": {
+      "types": "./dist/cdn-sign.d.ts",
       "import": "./dist/cdn-sign.es.js",
-      "require": "./dist/cdn-sign.cjs.js",
-      "types": "./dist/cdn-sign.d.ts"
+      "require": "./dist/cdn-sign.cjs.js"
     }
   },
   "scripts": {
