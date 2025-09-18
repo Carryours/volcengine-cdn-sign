@@ -1,9 +1,9 @@
 import CryptoJS from 'crypto-js';
 
 function splitUrl(url: string): [string, string, string, string] {
-  const match = url.match(/^(https?:\/\/)([^\/]+)([^?]*)(\?.*)?$/);
+  const match = url.match(/^(https?:)?\/\/([^\/]+)([^?]*)(\?.*)?$/);
   if (!match) throw new Error('URL 格式不正确');
-  return [match[1], match[2], match[3], match[4] ? match[4] : ''];
+  return [match[1] ? `${match[1]}//` : '//', match[2], match[3], match[4] ? match[4] : ''];
 }
 
 function hash(algorithm: string, text: string): string {
@@ -84,9 +84,10 @@ export function GenTypeCUrl(
   ts: number,
   algorithm: string
 ): string {
+  const defaultTs = Math.floor(Date.now() / 1000);
   const params = splitUrl(url);
   const scheme = params[0], host = params[1], path = params[2], args = params[3];
-  const tsStr = ts.toString(16);
+  const tsStr = ts ? ts.toString(16) : defaultTs.toString(16);
   const text = `${key}${path}${tsStr}`;
   const hashVal = hash(algorithm, text);
   return `${scheme}${host}/${hashVal}/${tsStr}${path}${args ? args : ''}`;
