@@ -7,11 +7,14 @@ const GenTypeBUrl = function (
   algorithm: string
 ): string {
   const params = splitUrl(url);
-  const scheme = params[0], host = params[1], path = params[2], args = params[3];
+  const scheme = params[0],
+    host = params[1],
+    path = params[2],
+    args = params[3];
   const tsStr = formatDate(ts);
   const text = `${key}${tsStr}${path}`;
   const hashVal = hash(algorithm, text);
-  return `${scheme}${host}/${tsStr}/${hashVal}${path}${args ? args : ''}`;
+  return `${scheme}${host}/${tsStr}/${hashVal}${path}${args ? args : ""}`;
 };
 
 export default GenTypeBUrl;
