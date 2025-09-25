@@ -1,6 +1,5 @@
 import { hash, splitUrl } from "../utils";
 
-
 const GenTypeDUrl = function (
   url: string,
   key: string,
@@ -11,7 +10,10 @@ const GenTypeDUrl = function (
   algorithm: string
 ): string {
   const params = splitUrl(url);
-  const scheme = params[0], host = params[1], path = params[2], args = params[3];
+  const scheme = params[0],
+    host = params[1],
+    path = params[2],
+    args = params[3];
   const tsStr = ts.toString(base);
   const text = `${key}${path}${tsStr}`;
   const hashVal = hash(algorithm, text);
